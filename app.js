@@ -23,7 +23,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /* #### DATABASE CONNECTION #### */
-mongoose.connect('mongodb+srv://toleksandr:Ekdyuwgxn7AJJWw@cluster0.kvuqgur.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true });
+mongoose.connect('', { useNewUrlParser: true });
 
 /* #### ROUTES #### */
 const parkingRoutes = require('./routes/parkingRoutes');
