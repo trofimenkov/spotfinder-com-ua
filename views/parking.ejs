@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/css/parking/parking.css">
+    <title>SpotFinder</title>
+</head>
+
+<body>
+    <div class="showcase">
+        <div class="content">
+            <div class="parking-data" id="parking">
+                <div class="parking-sections-container"></div>
+                <div class="parking-spots-container"></div>
+            </div>
+        </div>
+        <div class="buttons-container">
+            <a href="/">
+                <button class="btn_home">HOME</button></a>
+        </div>
+        <div class="popup-wrapper hide">
+            <div class="popup-form">
+                <h2 class="title">Parking Spot Booking</h2>
+                <!-- isOccupied=true -->
+                <div class="occupied-info">
+                    <p class="error">The parking spot you have selected is occupied. Please select an
+                        alternative spot.</p>
+                    <button class="btn_back">Back</button>
+                </div>
+                <!-- isOccupied=false -->
+                <form class="form">
+                    <h3 class="subtitle">Please fill out the form below:</h3>
+                    <div class="form-row">
+                        <div class="form-element">
+                            <label for="section">Section</label>
+                            <input type="text" id="section" placeholder="Section Name" readonly>
+                        </div>
+                        <div class="form-element">
+                            <label for="spot">Spot</label>
+                            <input type="text" id="spot" placeholder="Spot Name" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-element">
+                            <label for="firstname">First Name</label>
+                            <input type="text" id="firstname" placeholder="First name" required>
+                        </div>
+                        <div class="form-element">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" id="lastname" placeholder="Last name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-element">
+                            <label for="date-arrival">Arrival Date</label>
+                            <input type="date" id="date-arrival" required>
+                        </div>
+                        <div class="form-element">
+                            <label for="date-arrival-time">Time</label>
+                            <input type="time" id="date-arrival-time" required>
+                        </div>
+                        <div class="form-element">
+                            <label for="date-exit">Exit Date</label>
+                            <input type="date" id="date-exit" required>
+                        </div>
+                        <div class="form-element">
+                            <label for="date-exit-time">Time</label>
+                            <input type="time" id="date-exit-time" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-element">
+                            <label for="phone">Phone Number</label>
+                            <input type="number" id="phone" placeholder="Phone Number" minlength="10" maxlength="10"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-element">
+                            <label for="carnumber">Car Number</label>
+                            <input type="text" id="carnumber" placeholder="Car number" minlength="4" maxlength="4"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-element">
+                            <span class="promo-toggle">I have a promo code</span>
+                        </div>
+                    </div>
+                    <div class="form-element promo">
+                        <label for="promo" class="promo-label">Promo code</label>
+                        <input type="text" id="promo" class="promo-input">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-error"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-element">
+                            <button type="submit" class="btn_submit">Submit</button>
+                        </div>
+                        <div class="form-element">
+                            <span class="cost">Cost: <span id="costValue">0</span>$</span>
+                        </div>
+                    </div>
+                </form>
+                <span class="close-icon">&times;</span>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/js/parking/parking.js"></script>
+</body>
+
+</html>

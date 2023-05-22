@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/src/css/admin/login.css">
+    <script src="https://kit.fontawesome.com/203db8f58c.js" crossorigin="anonymous"></script>
+    <title>SpotFinder AdminPanel</title>
+</head>
+
+<body>
+    <div class="login-container">
+        <form method="POST" action="/admin/login" class="login-form">
+            <h1 class="title"><span class="orange">SPOT</span> FINDER</h1>
+            <div class="input-container">
+                <input type="text" class="input_username" id="username" name="username" placeholder="Type login here..."
+                    required>
+                <span class="user-icon"><i class="fas fa-user"></i></span>
+            </div>
+            <div class="input-container">
+                <input type="password" class="input_password" id="password" name="password"
+                    placeholder="Type password here..." required>
+                <span class="password-icon"><i class="fas fa-lock"></i></span>
+                <span class="toggle-password" onclick="togglePassword()">
+                    <i class="far fa-eye"></i>
+                </span>
+            </div>
+            <button type="submit" class="btn_submit">Log in</button>
+            <% if (messages && messages.length) { %>
+                <div class="message error">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div class="message-content">
+                        <%= messages %>
+                            <span class="descr">Check your login details.</span>
+                    </div>
+                </div>
+                <% } %>
+        </form>
+    </div>
+    <div class="footer">
+        <h3 class="copyright">Copyright © 2023 SpotFinder Inc. All rights reserved.</h3>
+    </div>
+    <script src="/src/js/admin/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/src/css/admin/admin-panel.css">
+    <script src="https://kit.fontawesome.com/203db8f58c.js" crossorigin="anonymous"></script>
+    <title>SpotFinder AdminPanel</title>
+</head>
+
+<body>
+    <div class="panel">
+        <div class="sidebar">
+            <nav class="nav">
+                <div class="nav-logo">
+                    <i class="fas fa-solid fa-screwdriver-wrench fa-lg"></i>
+                    <span class="nav-logo-text">SPOT FINDER</span>
+                </div>
+                <ul class="nav-items">
+                    <li class="nav-item" data-content="history-content">
+                        <i class="fas fa-light fa-table fa-lg"></i>
+                        <span class="nav-item-text">History</span>
+                    </li>
+
+                    <li class="nav-item" data-content="promo-content">
+                        <i class="fas fa-solid fa-percent fa-lg"></i>
+                        <span class="nav-item-text">Create Promo</span>
+                    </li>
+
+                    <li class="nav-item" data-content="user-content">
+                        <i class="fas fa-solid fa-user-plus fa-lg"></i>
+                        <span class="nav-item-text">Create User</span>
+                    </li>
+
+                    <li class="nav-item" data-content="parking-content">
+                        <i class="fas fa-solid fa-square-plus fa-lg"></i>
+                        <span class="nav-item-text">Add Section</span>
+                    </li>
+
+                    <li class="nav-item" data-content="spot-content">
+                        <i class="fas fa-solid fa-square-parking fa-lg"></i>
+                        <span class="nav-item-text">Add Spot</span>
+                    </li>
+                </ul>
+                <a href="/admin/logout" class="sidebar-exit">
+                    <div class="nav-exit">
+                        <i class="fas fa-arrow-right-from-bracket fa-lg"></i>
+                        <span class="nav-exit-text">Exit</span>
+                    </div>
+                </a>
+            </nav>
+        </div>
+        <div class="wrapper-content">
+            <header class="header">
+                <div class="header-content">
+                    <a class="sidebar-toggle"><i class="fas fa-bars fa-xl"></i></a>
+                </div>
+            </header>
+            <div class="subheader">
+                <div class="subheader-content">
+                    <div class="panel-info">
+                        <p>SPOT FINDER<br>Admin Panel</p>
+                        <h3>Version: 0.3a</h3>
+                    </div>
+                    <div class="panel-greeting">
+                        <p>Hello, <b>
+                                <%= username %>
+                            </b>!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="mid">
+                <div class="mid-content">
+                    <div id="user-content" class="content">
+                        <h3>Create admin account</h3>
+                        <form id="account-form">
+                            <div class="form-elements">
+                                <div class="input-wrapper">
+                                    <label for="username-input">Username:</label>
+                                    <input type="text" id="username-input" required>
+                                </div>
+                                <div class="input-wrapper">
+                                    <label for="password-input">Password:</label>
+                                    <input type="text" id="password-input" required>
+                                </div>
+                            </div>
+                            <button type="submit">Create</button>
+                        </form>
+                    </div>
+                    <div id="promo-content" class="content">
+                        <h3>Create promocode</h3>
+                        <form id="promocode-form">
+                            <div class="input-wrapper">
+                                <label for="promo-code-input">Promocode:</label>
+                                <input type="text" id="promo-code-input" required>
+                            </div>
+                            <div class="input-wrapper">
+                                <label for="discount-input">Discount (%):</label>
+                                <input type="number" id="discount-input" required>
+                            </div>
+                            <button type="submit">Create</button>
+                        </form>
+                    </div>
+                    <div id="history-content" class="content">
+                        <table class="styled-table" id="action-history-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Message</th>
+                                    <th>Date</th>
+                                    <th>Action Type</th>
+                                </tr>
+                            </thead>
+                            <tbody id="action-history-table-body">
+                                <!-- HISTORY DATA FROM DB -->
+                            </tbody>
+                        </table>
+                        <div class="table-footer">
+                            <div class="table-info">
+                                <span class="item-count">Elements: 0</span>
+                            </div>
+                            <div class="table-pagination">
+                                <button id="prev-page-button" class="pagination-button">Previous</button>
+                                <button id="next-page-button" class="pagination-button">Next</button>
+                            </div>
+                            <div class="table-actions">
+                                <button id="clear-history-button" class="clear-button">Clear History</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="parking-content" class="content">
+                        <h3>Parking Management</h3>
+                        <form id="parking-form">
+                            <div class="input-wrapper">
+                                <label for="sectionName">Section Name:</label>
+                                <input type="text" id="sectionName" required>
+                            </div>
+                            <div class="input-wrapper">
+                                <label for="sectionAddress">Section Address:</label>
+                                <input type="text" id="sectionAddress" required>
+                            </div>
+                            <div class="input-wrapper">
+                                <label for="hourlyRate">Hourly Rate ($):</label>
+                                <input type="text" id="hourlyRate" required>
+                            </div>
+                            <button type="submit">Create</button>
+                        </form>
+                    </div>
+                    <div id="spot-content" class="content">
+                        <h3>Parking Management</h3>
+                        <form id="spot-form">
+                            <div class="select-wrapper">
+                                <select id="section" required>
+                                    <!-- SECTIONS FROM DB -->
+                                </select>
+                            </div>
+                            <button type="submit">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="footer-content">
+                    <p class="copyright">Copyright (c) SpotFinder Inc. All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/js/admin/admin-panel.js"></script>
+</body>
+
+</html>

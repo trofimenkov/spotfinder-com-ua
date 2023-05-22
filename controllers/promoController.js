@@ -1,0 +1,1 @@
+const Promo = require('../models/promoData');

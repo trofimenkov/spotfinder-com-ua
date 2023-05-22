@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+}
+
+.title,
+.subtitle {
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-weight: 600;
+}
+
+.title {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.title .orange {
+    color: #f0c674;
+}
+
+.input-container .input_username,
+.input-container .input_password {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.input_username:focus,
+.input_password:focus {
+    outline-color: #f0c674;
+    left: 0;
+}
+
+.btn_submit {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0c674;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.btn_submit:hover {
+    background-color: #dab263;
+}
+
+.input-container {
+    position: relative;
+}
+
+.input-container .input_username,
+.input-container .input_password {
+    padding-left: 30px;
+}
+
+
+.password-container {
+    position: relative;
+}
+
+/* ERR MESSAGES */
+
+.message {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.message.error {
+    background-color: #ffe4e4;
+    border: 1px solid #ff6666;
+    color: #ff6666;
+}
+
+.message.error i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.message-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.descr {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* ICONS */
+.user-icon,
+.password-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    border: none;
+    background-color: #fff;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+.toggle-password i,
+.user-icon i,
+.password-icon i {
+    font-size: 18px;
+    color: #777;
+}
+
+.input_password:focus~.toggle-password i,
+.input_username:focus~.user-icon i,
+.input_password:focus~.password-icon i {
+    color: #333;
+}
+
+/* FOOTER */
+
+.footer {
+    margin-top: 50px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.footer .copyright {
+    margin: 0;
+    padding: 15px 0;
+    color: #a5a5a5;
+    font-size: 14px;
+    width: 100%;
+    height: auto;
+}

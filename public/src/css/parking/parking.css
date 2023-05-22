@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+/* GLOBAL CHANGES */
+html {
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.showcase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* POPUP FORM */
+/* Popup wrapper */
+.popup-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.25s linear;
+}
+
+/* Popup overlay */
+.popup-wrapper::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.popup-wrapper.hide {
+    visibility: hidden !important;
+}
+
+/* Popup form */
+.popup-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: #4b4b4b;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+}
+
+
+/* Popup form titles */
+.popup-form .title,
+.popup-form .subtitle {
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+/* Form structure */
+.popup-form .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.popup-form .form .form-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.popup-form .form .form-row {
+    display: flex;
+}
+
+/* Form labels */
+.popup-form .form label {
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* Form inputs */
+.popup-form .form .form-element input[type="text"],
+.popup-form .form .form-element input[type="date"],
+.popup-form .form .form-element input[type="time"],
+.popup-form .form .form-element input[type="number"] {
+    display: block;
+    padding: 10px;
+    margin: 0;
+    border: 1px solid #cecece;
+    border-radius: 5px;
+    outline-color: #f0c674;
+}
+
+/* Form promo toggle and show promo */
+.popup-form .form .form-element .promo-toggle {
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    opacity: 1;
+    transform: opacity 1s linear;
+}
+
+.popup-form .form .form-element .promo-toggle:hover {
+    color: #f0c674;
+}
+
+.popup-form .form .form-element .promo-toggle.hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.popup-form .form .form-element.promo {
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    transition: max-height, 2s, opacity, 0.25s, visibility 0.25s linear;
+}
+
+.popup-form .form .form-element.promo.active {
+    visibility: visible;
+    opacity: 1;
+    max-height: 72px;
+}
+
+
+/* Submit button */
+.occupied-info .btn_back,
+.popup-form .form .form-row .form-element .btn_submit {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0c674;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.occupied-info .btn_back:hover,
+.popup-form .form .form-row .form-element .btn_submit:hover {
+    background-color: #dab263;
+}
+
+/* Cost display */
+.popup-form .form .form-element .cost {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    border: 1px solid #dab263;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #000000;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Close icon */
+.popup-form .close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #aaa;
+    transition: color 0.3s ease-in-out;
+}
+
+.popup-form .close-icon:hover {
+    color: #777;
+}
+
+/* error and hide */
+
+.occupied-info {
+    max-height: 90px;
+}
+
+.occupied-info .error {
+    background-color: #ffa6a6;
+    color: #ce5c5c;
+    border-radius: 5px;
+    border: 1px solid #ce5c5c;
+    padding: 5px;
+}
+
+/* PARKING CONTENT */
+
+.content .parking-data .parking-sections-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    transition: display 0.3s ease-in-out;
+}
+
+.content .parking-data .parking-sections-container.hide {
+    display: none;
+}
+
+.parking-section {
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    margin: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 10px;
+    color: #505050;
+}
+
+.parking-section:nth-child(even) {
+    color: #7c6433;
+    background-color: #f0c674;
+}
+
+.parking-section:hover {
+    transform: scale(1.05);
+}
+
+.parking-spots-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.parking-spot {
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    margin: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 5px;
+}
+
+.parking-spot:hover {
+    transform: scale(1.05);
+}
+
+.parking-spot.available {
+    background-color: #6ad392;
+    color: #1f5721;
+}
+
+.parking-spot.occupied {
+    background-color: #e47676;
+    color: #4b1515;
+}
+
+.parking-spot.selected {
+    border: 2px solid red;
+}
+
+.parking-section .section-content,
+.parking-spot .spot-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.section-name {
+    font-size: 36px;
+    margin: 5px 0;
+}
+
+.spots-count {
+    font-size: 24px;
+    margin: 5px 0;
+}
+
+.section-address {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.hourly-rate {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.spot-number {
+    font-size: 24px;
+}
+
+.spot-status {
+    font-size: 16px;
+}
+
+.back-btn-container {
+    display: none;
+    margin-top: 1rem;
+}
+
+.back-button {
+    padding: 10px;
+    background-color: #e0a44a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.back-button:hover {
+    background-color: #d18f3c;
+}
+
+.occupied-info .btn_back {
+    width: 100%;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.buttons-container a {
+    text-decoration: none;
+}
+
+.buttons-container .btn_home {
+    padding: 10px;
+    background-color: #e0a44a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.buttons-container .btn_home:hover {
+    background-color: #d18f3c;
+}
+
+.back-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.form-error {
+    font-weight: 700;
+    font-size: 12px;
+    margin-top: 10px;
+    padding: 5px 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    color: transparent;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+.form-error:not(:empty) {
+    border: 1px solid;
+    color: #D63301;
+    background-color: #FFCCBA;
+}
+
+.form-error.success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
